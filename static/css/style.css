@@ -1,0 +1,62 @@
+/* Define the body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Define the header styles */
+  header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  /* Define the main content styles */
+  main {
+    padding: 20px;
+  }
+  
+  /* Define the link styles */
+  a {
+    color: #222;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Define the navigation menu styles */
+  nav {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #222;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  

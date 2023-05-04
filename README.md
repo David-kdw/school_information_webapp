@@ -1,2 +1,2 @@
-# school_information_webapp
- 
+# DIT-project_devops
+ CI/CD 

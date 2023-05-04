@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+    <h1>{% block heading %}{% endblock %}</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('homepage') }}">Home</a></li>
+        <li><a href="{{ url_for('location') }}">Location</a></li>
+        <li><a href="{{ url_for('classes') }}">Classes</a></li>
+        <li><a href="{{ url_for('notes') }}">Notes</a></li>
+        <li><a href="{{ url_for('teachers') }}">Teachers</a></li>
+        <li><a href="{{ url_for('lessons') }}">Lessons</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      {% block content %}{% endblock %}
+    </section>
+    <section>
+      <h2>Latest News</h2>
+      <ul>
+        <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+        <li><a href="#">Vestibulum ut massa eget ipsum suscipit posuere.</a></li>
+        <li><a href="#">Duis ut enim in nulla auctor dictum at eu orci.</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
