@@ -5,6 +5,10 @@ pipeline {
       args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
+  options {
+    // Set an absolute workspace path
+    workspace("$PWD/.")
+  }
   stages {
     stage('Clone') {
       steps {
