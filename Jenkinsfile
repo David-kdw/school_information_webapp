@@ -5,10 +5,6 @@ pipeline {
       args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
-  options {
-    // Set an absolute workspace path
-    workspace("$PWD/.")
-  }
   stages {
     stage('Clone') {
       steps {
@@ -16,26 +12,45 @@ pipeline {
       }
     }
     stage('Build') {
+      agent {
+        node {
+          label 'docker'
+          workspace("$PWD/.")
+        }
+      }
       steps {
-        sh 'docker-compose -f . build'
+        sh 'docker-compose build'
       }
     }
     stage('Test') {
+      agent {
+        node {
+          label 'docker'
+          workspace("$PWD/.")
+        }
+      }
       steps {
-        sh 'docker-compose -f . up -d db'
-        sh 'docker-compose -f . up -d sonarqube'
-        sh 'docker-compose -f . --rm app pytest'
+        sh 'docker-compose up -d db'
+        sh 'docker-compose up -d sonarqube'
+        sh 'docker-compose run --rm app pytest'
       }
       post {
         always {
-          sh 'docker-compose -f . down -v'
+          sh 'docker-compose down -v'
         }
       }
     }
     stage('Deploy') {
+      agent {
+        node {
+          label 'docker'
+          workspace("$PWD/.")
+        }
+      }
       steps {
-        sh 'docker-compose -f . up -d'
+        sh 'docker-compose up -d'
       }
     }
   }
 }
+
