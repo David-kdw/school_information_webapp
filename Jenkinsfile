@@ -15,7 +15,7 @@ pipeline {
       agent {
         node {
           label 'docker'
-          workspace("$PWD/.")
+          workspace("$PWD/")
         }
       }
       steps {
@@ -26,7 +26,7 @@ pipeline {
       agent {
         node {
           label 'docker'
-          workspace("$PWD/.")
+          workspace("$PWD/")
         }
       }
       steps {
@@ -44,7 +44,7 @@ pipeline {
       agent {
         node {
           label 'docker'
-          workspace("$PWD/.")
+          workspace("$PWD/")
         }
       }
       steps {
