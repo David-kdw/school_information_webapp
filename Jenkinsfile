@@ -1,31 +1,36 @@
 pipeline {
   agent {
     docker {
-      image 'jenkins/jenkins:lts'
-      args '-p 8080:8080 -v /var/jenkins_home:/var/jenkins_home'
+      image 'docker:latest'
+      args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
   stages {
+    stage('Clone') {
+      steps {
+        git 'https://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@github.com/David-kdw/school_information_webapp.git'
+      }
+    }
     stage('Build') {
       steps {
-        sh 'docker-compose build'
+        sh 'docker-compose -f . build'
       }
     }
     stage('Test') {
       steps {
-        sh 'docker-compose up -d db'
-        sh 'docker-compose up -d sonarqube'
-        sh 'docker-compose run --rm app pytest'
+        sh 'docker-compose -f . up -d db'
+        sh 'docker-compose -f . up -d sonarqube'
+        sh 'docker-compose -f . --rm app pytest'
       }
       post {
         always {
-          sh 'docker-compose down -v'
+          sh 'docker-compose -f . down -v'
         }
       }
     }
     stage('Deploy') {
       steps {
-        sh 'docker-compose up -d'
+        sh 'docker-compose -f . up -d'
       }
     }
   }
