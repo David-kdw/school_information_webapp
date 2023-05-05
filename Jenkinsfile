@@ -5,28 +5,20 @@ pipeline {
       args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
+  options {
+    
+  }
   stages {
-    stage('Clone') {
-      steps {
-        git 'https://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@github.com/David-kdw/school_information_webapp.git'
-      }
-    }
     stage('Build') {
-      agent {
-        node {
-          label 'docker'
-          workspace("$PWD/var/lib/jenkins/workspace/DIT-devops_project/")
-        }
-      }
       steps {
         sh 'docker-compose build'
       }
     }
     stage('Test') {
       agent {
-        node {
-          label 'docker'
-          workspace("$PWD/var/lib/jenkins/workspace/DIT-devops_project/")
+        docker {
+          image 'docker:latest'
+          args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
       }
       steps {
@@ -42,9 +34,11 @@ pipeline {
     }
     stage('Deploy') {
       agent {
-        node {
-          label 'docker'
-          workspace("$PWD/var/lib/jenkins/workspace/DIT-devops_project/")
+        docker {
+          image 'jenkins/jenkins:lts'
+          args '--workdir=/root'
+          mountDocker true
+          workDir '/var/jenkins_home'
         }
       }
       steps {
@@ -53,4 +47,3 @@ pipeline {
     }
   }
 }
-
