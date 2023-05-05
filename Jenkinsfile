@@ -2,17 +2,16 @@ pipeline {
   agent {
     docker {
       image 'jenkins/jenkins:lts'
-      args '-p 8080:8080'
+      args '-p 8080:8080 -v /var/jenkins_home:/var/jenkins_home'
     }
   }
   stages {
     stage('Build') {
-      steps {
-        dir('/home/jenkins/workspace/DIT-devops_project')
+      
         {
         sh 'docker-compose build'
         }
-      }
+      
     }
     stage('Test') {
       steps {
