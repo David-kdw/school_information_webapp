@@ -8,7 +8,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        dir('/home/jenkins/workspace/DIT-devops_project')
+        {
         sh 'docker-compose build'
+        }
       }
     }
     stage('Test') {
