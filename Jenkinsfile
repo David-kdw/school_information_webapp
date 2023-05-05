@@ -15,7 +15,7 @@ pipeline {
       agent {
         node {
           label 'docker'
-          workspace("$PWD/C:/Users/user/AppData/Local/Jenkins/.jenkins/workspace/DIT-devops_project/")
+          workspace("$PWD/var/lib/jenkins/workspace/DIT-devops_project/")
         }
       }
       steps {
@@ -26,7 +26,7 @@ pipeline {
       agent {
         node {
           label 'docker'
-          workspace("$PWD/C:/Users/user/AppData/Local/Jenkins/.jenkins/workspace/DIT-devops_project/")
+          workspace("$PWD/var/lib/jenkins/workspace/DIT-devops_project/")
         }
       }
       steps {
@@ -44,7 +44,7 @@ pipeline {
       agent {
         node {
           label 'docker'
-          workspace("$PWD/C:/Users/user/AppData/Local/Jenkins/.jenkins/workspace/DIT-devops_project/")
+          workspace("$PWD/var/lib/jenkins/workspace/DIT-devops_project/")
         }
       }
       steps {
