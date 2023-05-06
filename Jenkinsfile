@@ -1,7 +1,6 @@
 pipeline {
   agent {
     docker {
-      image 'jenkins/jenkins:lts'
       args '--workdir=/root'
     }
   }
