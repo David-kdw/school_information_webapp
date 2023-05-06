@@ -3,8 +3,7 @@ pipeline {
     docker {
       image 'jenkins/jenkins:lts'
       args '--workdir=/root'
-      mountDocker true
-      workDir '/var/jenkins_home'
+      Dir '/var/jenkins_home'
     }
   }
   stages {
