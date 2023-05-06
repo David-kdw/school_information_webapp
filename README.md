@@ -65,7 +65,10 @@ Hit Add webhook
 
 
 
-## Nox for each push, jenkins will deploy automatically the application inside docker. You can also get inside jenkins and laucnh build so all services will run
+## Now for each push, jenkins will deploy automatically the application inside docker. You can also get inside jenkins and laucnh build so all services will run
+
+You can check if the build is operational inside Jenkins dashboard 
+![Success build](/static/img/Jkns.PNG)
 
 Then you can launch the app with localhost:8081
 
