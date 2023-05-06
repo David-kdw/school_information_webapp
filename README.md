@@ -13,6 +13,8 @@ Make sure to have Administrative access on the system used to run this project
 
 # Requirements
 - install and run docker. In docker parametres check the box **Expose daemon on tcp://localhost:2375 without TLS** and apply. 
+![Docker expose](/static/img/docker1.PNG)
+
 *Note : Exposing the Docker daemon on a network without TLS (Transport Layer Security) encryption can be insecure, as it allows unencrypted traffic to be sent over the network, which can potentially be intercepted by a malicious actor. By default, the Docker daemon listens on a local Unix socket, which is secure and only accessible by the root user on the host machine. However, if you expose the Docker daemon on TCP without TLS, anyone who has access to the network can potentially access and control the Docker daemon.*
 
 If you need to expose the Docker daemon on TCP, it is recommended to enable TLS encryption to secure the connection. This involves configuring the Docker daemon to use TLS certificates and configuring the Docker client to use those certificates to authenticate the connection to the daemon.
