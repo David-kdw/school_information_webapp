@@ -1,9 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      args '--workdir=/root'
-    }
-  }
+  agent any
   stages {
     stage('Build') {
       steps {
