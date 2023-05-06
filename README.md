@@ -70,5 +70,7 @@ Hit Add webhook
 You can check if the build is operational inside Jenkins dashboard 
 ![Success build](/static/img/Jkns.PNG)
 
-Then you can launch the app with localhost:8081
+Then you can launch the app with localhost:8081 
+
+THANK YOU
 
