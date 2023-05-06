@@ -1,12 +1,10 @@
 pipeline {
   agent {
     docker {
-      image 'docker:latest'
-      args '-v /var/run/docker.sock:/var/run/docker.sock'
-    }
-  }
-  options {
-    
+      image 'jenkins/jenkins:lts'
+      args '--workdir=/root'
+      mountDocker true
+      workDir '/var/jenkins_home'
   }
   stages {
     stage('Build') {
@@ -15,12 +13,6 @@ pipeline {
       }
     }
     stage('Test') {
-      agent {
-        docker {
-          image 'docker:latest'
-          args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-      }
       steps {
         sh 'docker-compose up -d db'
         sh 'docker-compose up -d sonarqube'
@@ -33,17 +25,8 @@ pipeline {
       }
     }
     stage('Deploy') {
-      agent {
-        docker {
-          image 'jenkins/jenkins:lts'
-          args '--workdir=/root'
-          mountDocker true
-          workDir '/var/jenkins_home'
-        }
-      }
       steps {
         sh 'docker-compose up -d'
       }
-    }
   }
 }
