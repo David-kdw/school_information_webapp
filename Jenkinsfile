@@ -5,6 +5,7 @@ pipeline {
       args '--workdir=/root'
       mountDocker true
       workDir '/var/jenkins_home'
+    }
   }
   stages {
     stage('Build') {
@@ -28,5 +29,6 @@ pipeline {
       steps {
         sh 'docker-compose up -d'
       }
+    }
   }
 }
