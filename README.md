@@ -52,11 +52,12 @@ Jenkins has a Docker plugin that enables communication with Docker hosts. To ins
 7. Login again into jenkins and go to manage jenkins, the configure system
 8. Scroll down until Docker builder and under Docker URL server REST API URL, insert tcp://localhost:2375 to enable communication between jenkins ans docker andt that is all.
 
+
 >Adding repository polling on GitHub
 Go to your repository on GitHub, then go to Settings > Webhooks > Add webhook
 ![Git repo webhook](/static/img/git1.webp)
 In Payload URL add your Jenkins server address, adding **/github-webhook/** at the final, to look like: http://{IP Jenkins Server}:8080/github-webhook/
-In our case we are deploying on loaclhost so it should be **http://localhost:8080/github-webhook/**
+In our case we are deploying on loaclhost so it should be **http://localhost:8080/github-webhook/** Be sure there is your local host URL is reachable over the public Internet. Otherwise check your firewall options.  
 In Content type, choose application/json, Leave Secret blank
 Choose in which events you want to trigger the webhook( on push)
 Check the Active checkbox
