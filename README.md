@@ -72,5 +72,5 @@ You can check if the build is operational inside Jenkins dashboard
 
 Then you can launch the app with localhost:8081 
 
-THANK YOU
+THANK YOU! bye 
 
