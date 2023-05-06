@@ -10,6 +10,7 @@ pipeline {
       steps {
         sh 'docker-compose up -d db'
         sh 'docker-compose up -d sonarqube'
+        sh 'docker-compose up -d grafana'
         sh 'docker-compose run --rm app pytest'
       }
       post {
